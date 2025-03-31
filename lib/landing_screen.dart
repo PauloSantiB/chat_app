@@ -45,7 +45,7 @@ class _LandingScreenState extends State<LandingScreen> {
               ),
             ),
             Container(
-              height:  MediaQuery.of(context).size.height /2.5,
+              height:  MediaQuery.of(context).size.height /2.4,
               width: double.infinity,
               decoration: const BoxDecoration(
                 color: Colors.white,
@@ -54,8 +54,9 @@ class _LandingScreenState extends State<LandingScreen> {
                 )
               ),
               child:  Padding(
-                padding: const EdgeInsets.all(25.0),
+                padding: const EdgeInsets.all(20.0),
                 child:  Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                    const Text(
               "Express yourself with ChatApp",
@@ -65,7 +66,6 @@ class _LandingScreenState extends State<LandingScreen> {
                 fontWeight: FontWeight.w600
               ),
               ),
-             const SizedBox(height: 20),
              const Text(
               "Chat using avatar emoji gives a diferent, dare to try it ?",
               textAlign: TextAlign.center,
@@ -74,7 +74,6 @@ class _LandingScreenState extends State<LandingScreen> {
                 fontWeight: FontWeight.w300
               ),
               ),
-              const SizedBox(height: 20),
               SwipeableButtonView(
                 isFinished: isFinished,
                 onFinish: (){
@@ -91,11 +90,9 @@ class _LandingScreenState extends State<LandingScreen> {
                   });
                 },
                 activeColor: Colors.blue,
-                buttonWidget: Container(
-                  child: Icon(
-                    CupertinoIcons.chevron_right_2,
-                    color: Colors.grey,
-                  ),
+                buttonWidget: Icon(
+                  CupertinoIcons.chevron_right_2,
+                  color: Colors.grey,
                 ),
                 buttonText: "Swipe to start"
                 )
