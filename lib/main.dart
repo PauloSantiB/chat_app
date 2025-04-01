@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:chat_app/landing_screen.dart';
+import 'package:chat_app/screens/landing_screen.dart';
 
 void main() {
   runApp(const MainApp());
