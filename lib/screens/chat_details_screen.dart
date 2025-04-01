@@ -1,3 +1,4 @@
+import 'package:chat_app/data/chat_details_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,14 +13,9 @@ class ChatDetailsScreen extends StatefulWidget {
 
 class _ChatDetailsScreenState extends State<ChatDetailsScreen> {
 
-  List<String> messages = [
-    "Can you help me to do something with my landing page?\n\nThanks you? ",
-    "Wait, I'll send you a video link !",
-    "Thanks you so much !!",
-    "It is my pleasure" 
-     ];
+  List<String> messages = ChatDetailsData().messages;
 
-    TextEditingController _controller = TextEditingController();
+  TextEditingController _controller = TextEditingController();
     String message = '' ;
 
 
