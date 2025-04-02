@@ -1,7 +1,9 @@
-import 'package:chat_app/screens/chat_details_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:go_router/go_router.dart';
+
+import 'package:chat_app/screens/chat_details_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -73,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
           child: Column(
         children: [
-          Container(
+          SizedBox(
             height: 100,
             child: ListView.builder(
                 itemCount: people.length,

@@ -1,21 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 class ChatDetailsExtra {
   final int index;
-  final String name; 
+  final String name;
 
-   ChatDetailsExtra({
-    required this.index,
-    required this.name
-   });
-} 
- 
-class ChatDetailsScreen extends StatefulWidget { 
+  ChatDetailsExtra({required this.index, required this.name});
+}
+
+class ChatDetailsScreen extends StatefulWidget {
   final ChatDetailsExtra extra;
 
-  const ChatDetailsScreen( {super.key, required this.extra});
+  const ChatDetailsScreen({super.key, required this.extra});
 
   @override
   State<ChatDetailsScreen> createState() => _ChatDetailsScreenState();
@@ -138,8 +134,7 @@ class _ChatDetailsScreenState extends State<ChatDetailsScreen> {
                         children: [
                           Container(
                             constraints: BoxConstraints(
-                              maxWidth:
-                                  MediaQuery.of(context).size.width * 0.7,
+                              maxWidth: MediaQuery.of(context).size.width * 0.7,
                             ),
                             decoration: BoxDecoration(
                               color: i.isEven ? Colors.white : Colors.blue,
@@ -147,18 +142,19 @@ class _ChatDetailsScreenState extends State<ChatDetailsScreen> {
                             ),
                             child: Padding(
                               padding: const EdgeInsets.all(16.0),
-                              child: Image.asset("assets/${widget.extra.index}.png"), 
-                               //Text(
-                               // messages[i],
-                               // textAlign: i.isEven
-                                //    ? TextAlign.start
+                              child: Image.asset(
+                                  "assets/${widget.extra.index}.png"),
+                              //Text(
+                              // messages[i],
+                              // textAlign: i.isEven
+                              //    ? TextAlign.start
                               //      : TextAlign.end,
-                               // style: TextStyle(
-                               //   color: i.isEven
-                                  //    ? Colors.black
-                                  //    : Colors.white,
+                              // style: TextStyle(
+                              //   color: i.isEven
+                              //    ? Colors.black
+                              //    : Colors.white,
                               //  ),
-                           //   ),
+                              //   ),
                             ),
                           ),
                           const Padding(
