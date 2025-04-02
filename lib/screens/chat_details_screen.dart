@@ -142,19 +142,14 @@ class _ChatDetailsScreenState extends State<ChatDetailsScreen> {
                             ),
                             child: Padding(
                               padding: const EdgeInsets.all(16.0),
-                              child: Image.asset(
-                                  "assets/${widget.extra.index}.png"),
-                              //Text(
-                              // messages[i],
-                              // textAlign: i.isEven
-                              //    ? TextAlign.start
-                              //      : TextAlign.end,
-                              // style: TextStyle(
-                              //   color: i.isEven
-                              //    ? Colors.black
-                              //    : Colors.white,
-                              //  ),
-                              //   ),
+                              child: Text(
+                                messages[i],
+                                textAlign:
+                                    i.isEven ? TextAlign.start : TextAlign.end,
+                                style: TextStyle(
+                                  color: i.isEven ? Colors.black : Colors.white,
+                                ),
+                              ),
                             ),
                           ),
                           const Padding(
