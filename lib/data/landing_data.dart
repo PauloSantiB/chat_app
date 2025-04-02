@@ -1,7 +1,13 @@
 class LandingData {
-  final String title = "Express yourself with ChatApp";
+  String getTitle() {
+    return "Express yourself with ChatApp";
+  }
 
-  final String description = "Chat using avatar emoji, dare to try it?";
+  String getDescription() {
+    return "Chat using avatar emoji, dare to try it?";
+  }
 
-  final String buttonText = "Swipe to start";
+  String getButtonText() {
+    return "Swipe to start";
+  }
 }

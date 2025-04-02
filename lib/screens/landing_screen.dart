@@ -52,36 +52,37 @@ class _LandingScreenState extends State<LandingScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text(
-                  landingData.title,
+                  landingData.getTitle(),
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
                 ),
                 Text(
-                  landingData.description,
+                  landingData.getDescription(),
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 13, fontWeight: FontWeight.w300),
                 ),
                 SwipeableButtonView(
-                    isFinished: isFinished,
-                    onFinish: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute<void>(
-                          builder: (BuildContext context) => const HomeScreen(),
-                        ),
-                      );
-                    },
-                    onWaitingProcess: () {
-                      setState(() {
-                        isFinished = true;
-                      });
-                    },
-                    activeColor: Colors.blue,
-                    buttonWidget: Icon(
-                      CupertinoIcons.chevron_right_2,
-                      color: Colors.grey,
-                    ),
-                    buttonText: landingData.buttonText)
+                  isFinished: isFinished,
+                  onFinish: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) => const HomeScreen(),
+                      ),
+                    );
+                  },
+                  onWaitingProcess: () {
+                    setState(() {
+                      isFinished = true;
+                    });
+                  },
+                  activeColor: Colors.blue,
+                  buttonWidget: Icon(
+                    CupertinoIcons.chevron_right_2,
+                    color: Colors.grey,
+                  ),
+                  buttonText: landingData.getButtonText(),
+                )
               ],
             ),
           ),
