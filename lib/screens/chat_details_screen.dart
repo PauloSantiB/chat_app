@@ -54,7 +54,7 @@ class _ChatDetailsScreenState extends State<ChatDetailsScreen> {
               ),
               child: Padding(
                 padding: const EdgeInsets.all(6.0),
-                child: Image.asset("assets/${widget.extra.index}.png"),
+                child: Image.asset("assets/${widget.extra.index + 1}.png"),
               ),
             ),
             const SizedBox(width: 10),
