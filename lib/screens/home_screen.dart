@@ -86,23 +86,30 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemBuilder: (context, int i) {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: 60,
-                          width: 60,
-                          decoration: BoxDecoration(
-                              color: Colors.grey.shade200,
-                              image: DecorationImage(
-                                image: AssetImage('assets/${i + 1}.png'),
-                                scale: 10,
-                              ),
-                              shape: BoxShape.circle),
-                        ),
-                        const SizedBox(height: 5),
-                        Text(people[i])
-                      ],
+                    child: InkWell(
+                      onTap: () {
+                        context.pushNamed(
+                          'contact-details',
+                        );
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            height: 60,
+                            width: 60,
+                            decoration: BoxDecoration(
+                                color: Colors.grey.shade200,
+                                image: DecorationImage(
+                                  image: AssetImage('assets/${i + 1}.png'),
+                                  scale: 10,
+                                ),
+                                shape: BoxShape.circle),
+                          ),
+                          const SizedBox(height: 5),
+                          Text(people[i])
+                        ],
+                      ),
                     ),
                   );
                 }),

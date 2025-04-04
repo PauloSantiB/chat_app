@@ -62,7 +62,7 @@ class _LandingScreenState extends State<LandingScreen> {
                 SwipeableButtonView(
                     isFinished: isFinished,
                     onFinish: () {
-                      context.pushNamed('home');
+                      context.goNamed('home');
                     },
                     onWaitingProcess: () {
                       setState(() {
