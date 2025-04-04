@@ -2,6 +2,8 @@ import 'package:chat_app/data/landing_data.dart';
 import 'package:chat_app/screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'package:go_router/go_router.dart';
 import 'package:swipeable_button_view/swipeable_button_view.dart';
 
 class LandingScreen extends StatefulWidget {

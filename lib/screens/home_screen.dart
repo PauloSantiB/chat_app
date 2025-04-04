@@ -1,7 +1,10 @@
 import 'package:chat_app/data/home_data.dart';
-import 'package:chat_app/screens/chat_details_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'package:go_router/go_router.dart';
+
+import 'package:chat_app/screens/chat_details_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -94,11 +97,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: const EdgeInsets.all(8.0),
                   child: ListTile(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute<void>(
-                          builder: (BuildContext context) =>
-                              ChatDetailsScreen(index + 1, people[index]),
+                      // context.push("/chat-details");
+                      context.pushNamed(
+                        'chat-details',
+                        extra: ChatDetailsExtra(
+                          index: index,
+                          name: people[index],
                         ),
                       );
                     },
