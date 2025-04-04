@@ -1,6 +1,9 @@
-import 'package:chat_app/data/chat_details_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'package:go_router/go_router.dart';
+
+import 'package:chat_app/data/chat_details_data.dart';
 
 class ChatDetailsExtra {
   final int index;
@@ -19,12 +22,10 @@ class ChatDetailsScreen extends StatefulWidget {
 }
 
 class _ChatDetailsScreenState extends State<ChatDetailsScreen> {
-
   List<String> messages = ChatDetailsData().getMessages();
 
   TextEditingController _controller = TextEditingController();
-    String message = '' ;
-
+  String message = '';
 
   @override
   Widget build(BuildContext context) {
@@ -35,49 +36,56 @@ class _ChatDetailsScreenState extends State<ChatDetailsScreen> {
         elevation: 0,
         backgroundColor: Colors.white,
         leading: IconButton(
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => context.pop(),
           icon: const Icon(
             CupertinoIcons.chevron_back,
             color: Colors.black,
           ),
         ),
-        title: Row(
-          children: [
-            Container(
-              width: kToolbarHeight - 10,
-              height: kToolbarHeight - 10,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.grey.shade200,
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(6.0),
-                child: Image.asset("assets/${widget.extra.index + 1}.png"),
-              ),
-            ),
-            const SizedBox(width: 10),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  widget.extra.name,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
+        title: InkWell(
+          onTap: () {
+            context.pushNamed(
+              'contact-details',
+            );
+          },
+          child: Row(
+            children: [
+              Container(
+                width: kToolbarHeight - 10,
+                height: kToolbarHeight - 10,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.grey.shade200,
                 ),
-                const SizedBox(height: 2),
-                const Text(
-                  'Online',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w300,
-                    color: Colors.green,
-                    fontSize: 12,
-                  ),
+                child: Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: Image.asset("assets/${widget.extra.index + 1}.png"),
                 ),
-              ],
-            ),
-          ],
+              ),
+              const SizedBox(width: 10),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.extra.name,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  const Text(
+                    'Online',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w300,
+                      color: Colors.green,
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
         actions: [
           Icon(
