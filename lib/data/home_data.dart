@@ -1,24 +1,26 @@
 class HomeData {
-  List<String> people = [
-    'Colt',
-    'Mayra',
-    'Neeta',
-    'Sarah',
-    'Natasha',
-    'Robert',
-    'Thomas',
+  List<String> getPeople () {
+    return [
+    'Paulo',
+    'Matias',
+    'David',
+    'Santiago',
+    'Romina',
+    'Federico',
+    'Tomas',
     'Nathasha',
-    'Claire',
+    'Emilia',
     'Olivia',
-    'Emma',
-    'Amelia',
-    'Liam',
-    'William',
+    'Martina',
+    'Nicole',
+    'Sebastian',
+    'Alejo',
     'Lucas',
-    'Henry',
+    'Gerardo',
     'Mia',
-    'Ava',
-    'Evelyn',
-    'Luna',
+    'Ana',
+    'Belen',
+    'Matteo',
   ];
+  }
 }

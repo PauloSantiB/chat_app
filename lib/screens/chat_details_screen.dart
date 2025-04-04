@@ -13,7 +13,7 @@ class ChatDetailsScreen extends StatefulWidget {
 
 class _ChatDetailsScreenState extends State<ChatDetailsScreen> {
 
-  List<String> messages = ChatDetailsData().messages;
+  List<String> messages = ChatDetailsData().getMessages();
 
   TextEditingController _controller = TextEditingController();
     String message = '' ;

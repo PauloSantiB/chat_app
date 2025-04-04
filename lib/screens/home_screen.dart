@@ -11,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<String> people = HomeData().people;
+  List<String> people = HomeData().getPeople();
 
   @override
   Widget build(BuildContext context) {
