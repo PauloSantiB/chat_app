@@ -1,3 +1,4 @@
+import 'package:chat_app/data/home_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,28 +14,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<String> people = [
-    'Colt',
-    'Mayra',
-    'Neeta',
-    'Sarah',
-    'Natasha',
-    'Robert',
-    'Thomas',
-    'Nathasha',
-    'Claire',
-    'Olivia',
-    'Emma',
-    'Amelia',
-    'Liam',
-    'William',
-    'Lucas',
-    'Henry',
-    'Mia',
-    'Ava',
-    'Evelyn',
-    'Luna',
-  ];
+  List<String> people = HomeData().getPeople();
 
   @override
   Widget build(BuildContext context) {
@@ -76,10 +56,10 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
         children: [
           SizedBox(
-            height: 100,
+            height: 106,
             child: ListView.builder(
                 itemCount: people.length,
-                //shrinkWrap: true,
+                shrinkWrap: true,
                 //physics: const NeverScrollableScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 //itemCount: people.length,
@@ -147,10 +127,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       people[index],
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    subtitle: Text("blablablabla..."),
-                    //style: const TextStyle(
-                    // fontWeight: FontWeight.bold
-
+                    subtitle: Text(
+                      "blablablabla...",
+                      //style: const TextStyle(
+                      // fontWeight: FontWeight.bold
+                    ),
                     trailing: Column(
                       children: [
                         Text(

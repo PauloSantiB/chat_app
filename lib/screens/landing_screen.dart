@@ -1,3 +1,4 @@
+import 'package:chat_app/data/landing_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,8 @@ class LandingScreen extends StatefulWidget {
 
 class _LandingScreenState extends State<LandingScreen> {
   late bool isFinished;
+
+  final landingData = LandingData();
 
   @override
   void initState() {
@@ -49,32 +52,33 @@ class _LandingScreenState extends State<LandingScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const Text(
-                  "Express yourself with ChatApp",
+                Text(
+                  landingData.getTitle(),
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
                 ),
-                const Text(
-                  "Chat using avatar emoji gives a diferent, dare to try it ?",
+                Text(
+                  landingData.getDescription(),
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 13, fontWeight: FontWeight.w300),
                 ),
                 SwipeableButtonView(
-                    isFinished: isFinished,
-                    onFinish: () {
-                      context.goNamed('home');
-                    },
-                    onWaitingProcess: () {
-                      setState(() {
-                        isFinished = true;
-                      });
-                    },
-                    activeColor: Colors.blue,
-                    buttonWidget: Icon(
-                      CupertinoIcons.chevron_right_2,
-                      color: Colors.grey,
-                    ),
-                    buttonText: "Swipe to start")
+                  isFinished: isFinished,
+                  onFinish: () {
+                    context.goNamed('home');
+                  },
+                  onWaitingProcess: () {
+                    setState(() {
+                      isFinished = true;
+                    });
+                  },
+                  activeColor: Colors.blue,
+                  buttonWidget: Icon(
+                    CupertinoIcons.chevron_right_2,
+                    color: Colors.grey,
+                  ),
+                  buttonText: landingData.getButtonText(),
+                )
               ],
             ),
           ),
