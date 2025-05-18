@@ -1,4 +1,5 @@
 import 'package:chat_app/data/home_data.dart';
+import 'package:chat_app/screens/contact_details_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<String> people = HomeData().getPeople();
+  final users = HomeData().getUsers();
 
   @override
   Widget build(BuildContext context) {
@@ -58,18 +59,16 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             height: 106,
             child: ListView.builder(
-                itemCount: people.length,
+                itemCount: users.length,
                 shrinkWrap: true,
-                //physics: const NeverScrollableScrollPhysics(),
                 scrollDirection: Axis.horizontal,
-                //itemCount: people.length,
                 itemBuilder: (context, int i) {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: InkWell(
                       onTap: () {
                         context.pushNamed(
-                          'contact-details',
+                          'contact-details',extra: ContactDetailsExtra(index: i,user: users[i] )
                         );
                       },
                       child: Column(
@@ -87,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 shape: BoxShape.circle),
                           ),
                           const SizedBox(height: 5),
-                          Text(people[i])
+                          Text(users[i].name)
                         ],
                       ),
                     ),
@@ -98,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: people.length,
+              itemCount: users.length,
               itemBuilder: (context, int index) {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -109,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         'chat-details',
                         extra: ChatDetailsExtra(
                           index: index,
-                          name: people[index],
+                           user: users[index],
                         ),
                       );
                     },
@@ -124,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     title: Text(
-                      people[index],
+                      users[index].name,
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                     subtitle: Text(

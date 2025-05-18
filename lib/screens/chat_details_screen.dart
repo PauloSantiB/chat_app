@@ -1,3 +1,5 @@
+import 'package:chat_app/models/user.dart';
+import 'package:chat_app/screens/contact_details_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -7,9 +9,9 @@ import 'package:chat_app/data/chat_details_data.dart';
 
 class ChatDetailsExtra {
   final int index;
-  final String name;
+  final User user;
 
-  ChatDetailsExtra({required this.index, required this.name});
+  ChatDetailsExtra({required this.index, required this.user});
 }
 
 class ChatDetailsScreen extends StatefulWidget {
@@ -46,6 +48,8 @@ class _ChatDetailsScreenState extends State<ChatDetailsScreen> {
           onTap: () {
             context.pushNamed(
               'contact-details',
+              extra: ContactDetailsExtra(index: widget.extra.index, user: widget.extra.user),
+                            
             );
           },
           child: Row(
@@ -67,7 +71,7 @@ class _ChatDetailsScreenState extends State<ChatDetailsScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    widget.extra.name,
+                    widget.extra.user.name,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.black,

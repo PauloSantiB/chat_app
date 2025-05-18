@@ -26,7 +26,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/contact-details',
       name: 'contact-details',
-      builder: (context, state) => const ContactDetailsScreen(),
+      builder: (context, state) =>  ContactDetailsScreen(extra: state.extra as ContactDetailsExtra),
     ),
   ],
 );
